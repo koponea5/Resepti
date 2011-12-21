@@ -2,9 +2,9 @@
 #define ELEC_AS_CPP_U1E1
 
 #include <string>
-#include <stdio>
+#include <iostream>
 #include "receipt.h"
-#include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -16,29 +16,18 @@ struct Product
     int quantity;
 };
 
+class receipt {
+	vector<Product> vee;
 
-receipt::receipt(const char *n, const char *c)
-{
-	string phrase(n);
-	phrase += " wanna cracker!";
-	name = n;
-	color = c;
-	repertoire.push_back(phrase);
-}
-
-receipt::~receipt()
-{
-}
-
-void receipt::add(const char *phrase) {
-}
-void receipt::remove(const char *phrase) {
-}
-void receipt::print(const char *phrase) {
-}
-void receipt::quit(const char *phrase) {
-}
-
+public:
+	receipt();
+	receipt(const Product &product);
+	receipt(std::vector<Product> product);
+	~receipt();
+	void add(const Product &product);
+	void remove();
+	void print();
+};
 //const char *receipt::talk() {
 //	int sentence = rand() % repertoire.size();
 //	return repertoire[sentence].c_str();
